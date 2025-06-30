@@ -527,20 +527,6 @@ moatless-mcp-server --workspace . --debug
 }
 ```
 
-## 🤝 贡献指南
-
-1. **Fork** 本仓库
-2. **创建功能分支**: `git checkout -b feature/new-feature`
-3. **提交更改**: `git commit -am 'Add new feature'`
-4. **推送分支**: `git push origin feature/new-feature`
-5. **创建 Pull Request**
-
-### 开发规范
-- 遵循 PEP 8 代码风格
-- 编写单元测试
-- 更新文档
-- 确保类型注解完整
-
 ## 📖 相关文档
 
 - **[MCP 规范](https://spec.modelcontextprotocol.io/)** - 官方 MCP 协议规范
@@ -548,14 +534,3 @@ moatless-mcp-server --workspace . --debug
 - **[Tree-sitter](https://tree-sitter.github.io/tree-sitter/)** - 代码解析器
 - **[FAISS](https://faiss.ai/)** - 向量相似性搜索
 
-## 📄 许可证
-
-本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件。
-
-## 🙏 致谢
-
-本项目基于以下优秀的开源项目：
-- [Moatless Tools](https://github.com/aorwall/moatless-tools) - 语义搜索核心
-- [Model Context Protocol](https://modelcontextprotocol.io/) - 协议标准
-- [Tree-sitter](https://tree-sitter.github.io/) - 代码解析
-- [FAISS](https://faiss.ai/) - 向量搜索引擎
