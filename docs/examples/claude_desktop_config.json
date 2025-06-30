@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "moatless": {
+      "command": "moatless-mcp-server",
+      "args": ["--workspace", "/path/to/your/project"],
+      "env": {
+        "MOATLESS_MAX_FILE_SIZE": "10485760",
+        "MOATLESS_MAX_SEARCH_RESULTS": "100"
+      }
+    }
+  }
+}

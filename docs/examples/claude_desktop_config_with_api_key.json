@@ -1,0 +1,30 @@
+//
+// ⚠️ 安全注意事项:
+// 1. 请将 "jina_1647cb729b454f82ada95dedf18f5fbd_cxKj3hRLTs9MEwqUTxD64W3PbcF" 替换为您的真实 Jina AI API 密钥
+// 2. 不要将包含真实 API 密钥的配置文件提交到版本控制系统
+// 3. 建议为不同项目使用不同的配置文件
+// 4. 定期轮换您的 API 密钥以确保安全
+//
+// 💡 使用提示:
+// - 首次使用建议添加 "--no-index" 参数快速启动
+// - 代码索引文件会存储在项目的 .moatless_index/ 目录中
+// - 可以通过环境变量自定义文件大小限制和搜索结果数量
+// - 已从 OpenAI 迁移到 Jina AI，嵌入维度为 1024
+//
+{
+  "mcpServers": {
+    "moatless": {
+      "command": "moatless-mcp-server",
+      "args": [
+        "--workspace",
+        "/path/to/your/project",
+        "--jina-api-key",
+        "jina_1647cb729b454f82ada95dedf18f5fbd_cxKj3hRLTs9MEwqUTxD64W3PbcF"
+      ],
+      "env": {
+        "MOATLESS_MAX_FILE_SIZE": "10485760",
+        "MOATLESS_MAX_SEARCH_RESULTS": "100"
+      }
+    }
+  }
+} 

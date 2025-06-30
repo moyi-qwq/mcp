@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "moatless": {
+      "autoApprove": [],
+      "disabled": false,
+      "timeout": 60,
+      "command": "moatless-mcp-server",
+      "args": [
+        "--workspace",
+        "${workspaceFolder}"
+      ],
+      "transportType": "stdio",
+      "alwaysAllow": []
+    }
+  }
+}
