@@ -216,7 +216,7 @@ class UnderstandResultTool(MCPTool):
                 "architecture": result["properties"]["architecture"],
                 "communities": result["properties"]["communities"]
             }
-            return ToolResult(success=True, message=res, properties=result["properties"])
+            return ToolResult(success=True, message=f"The result get successfully.", properties=res)
 
         except Exception as e:
             logger.exception("Exception in execute")
