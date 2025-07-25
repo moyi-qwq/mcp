@@ -53,7 +53,7 @@ class ProjectUnderstandTool(MCPTool):
                 },
                 "language": {
                     "type": "string",
-                    "description": "the programming language of the target repository. Now only support cpp and java"
+                    "description": "the programming language of the target repository. Now only support cpp, java and python"
                 },
                 "output_path": {
                     "type": "string",
@@ -108,7 +108,7 @@ class ProjectUnderstandTool(MCPTool):
             logger.info("[Task %s] Starting analysis", task_id)
             output_path = args["output_path"]
             
-            file_path = os.path.join(output_path, "depends.json")
+            file_path = os.path.join(output_path, "depends-file.json")
             
             if not os.path.exists(file_path):
                 file_path = self.depends(args)
