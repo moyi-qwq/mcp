@@ -44,6 +44,17 @@ def type_check(tar):
     return TypeWeight.get(key, 0)
 # def type_check()
 
+def tokenize_path(path: str):
+    """将路径按目录拆分成token"""
+    return path.strip(os.sep).split(os.sep)
+
+def jaccard_similarity(tokens1, tokens2):
+    """计算路径token的Jaccard相似度"""
+    set1, set2 = set(tokens1), set(tokens2)
+    if not set1 or not set2:
+        return 0.0
+    return len(set1 & set2) / len(set1 | set2)
+
 def get_new_graph(target_graph, communities):
     """
     communities: {
@@ -202,7 +213,12 @@ class DataProcess:
             r_v = base_graph.nodes[v]['fr']['functional_relevance']['score']
             base_graph[u][v]['weight'] = (w_u + w_v) * (float(r_u) / float(r_v)) * weight
 
+        # target_graph = base_graph.copy()
+        isloated_nodes = list(nx.isolates(base_graph))
+        
         target_graph = base_graph.copy()
+        # base_graph.
+        target_graph.remove_nodes_from(isloated_nodes)
         while True:
             if len(comm_dict.keys()) == 0:
                 comm_dict = self.cluster_core(target_graph)
@@ -224,6 +240,7 @@ class DataProcess:
                     break
         
         communities = sorted(comm_dict.values(), key=len, reverse=True)
+        communities = self.IsolatedNodeCluster(isloated_nodes, communities)
         # print(len(communities))
         communities_result = []
         count = 0
@@ -240,6 +257,38 @@ class DataProcess:
         self.communities_result = communities_result
         return communities_result
 
+    def PathSimilarity(self, node, community):
+        """node: id, community: list(id)"""
+        path = self.graph.nodes[node]['name']
+        scores = []
+        for id in community:
+            tar_path = self.graph.nodes[id]['name']
+            score = jaccard_similarity(tokenize_path(path), tokenize_path(tar_path))
+            scores.append(score)
+        return sum(scores) / len(scores) if scores else 0.0
+
+
+    def IsolatedNodeCluster(self, isolated_nodes, communities, threshold=0.5):
+        def best_community_get(node, communities):
+            best_score = 0
+            best_community = None
+            for id, comm in enumerate(communities):
+                score = self.PathSimilarity(node, comm)
+                print(f"Similarity with {id}: {score:.3f}")
+                if score > best_score:
+                    best_score = score
+                    best_community = comm
+            if best_score >= threshold:
+                return best_community, best_score
+            else:
+                return None, best_score
+        for node in isolated_nodes:
+            bc, bs = best_community_get(node, communities)
+            if bc == None:
+                communities.append([node])
+            else:
+                bc.append(node)
+        return sorted(communities, key=len, reverse=True)
     
     async def communities_info(self):
         def prompt_get(data):
