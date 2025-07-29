@@ -4,7 +4,7 @@
       "autoApprove": [],
       "disabled": false,
       "timeout": 60,
-      "command": "moatless-mcp-server",
+      "command": "Industrial_Software_MCP",
       "args": [
         "--workspace",
         "${workspaceFolder}"

@@ -14,12 +14,12 @@
 {
   "mcpServers": {
     "moatless": {
-      "command": "moatless-mcp-server",
+      "command": "Industrial_Software_MCP",
       "args": [
         "--workspace",
         "/path/to/your/project",
         "--jina-api-key",
-        "jina_1647cb729b454f82ada95dedf18f5fbd_cxKj3hRLTs9MEwqUTxD64W3PbcF"
+        ""
       ],
       "env": {
         "MOATLESS_MAX_FILE_SIZE": "10485760",

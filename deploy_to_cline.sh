@@ -16,9 +16,9 @@ pip install -e .
 
 # 3. 验证安装
 echo "🔍 验证安装..."
-if command -v moatless-mcp-server &> /dev/null; then
+if command -v Industrial_Software_MCP &> /dev/null; then
     echo "✅ MCP Server 安装成功"
-    moatless-mcp-server --help
+    Industrial_Software_MCP --help
 else
     echo "❌ MCP Server 安装失败"
     exit 1

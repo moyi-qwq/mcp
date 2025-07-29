@@ -12,13 +12,13 @@
 
 ```bash
 # 克隆或进入项目目录
-cd moatless-mcp-server
+cd Industrial_Software_MCP
 
 # 安装服务器
 pip install -e .
 
 # 验证安装
-moatless-mcp-server --help
+Industrial_Software_MCP --help
 ```
 
 ### 步骤 1.5: 准备 OpenAI API 密钥（用于语义搜索）
@@ -44,7 +44,7 @@ moatless-mcp-server --help
 
 ```
 Server Name: moatless
-Command: moatless-mcp-server
+Command: Industrial_Software_MCP
 Args: --workspace ${workspaceFolder} --openai-api-key YOUR_API_KEY_HERE
 Transport Type: stdio
 Timeout: 60
@@ -64,7 +64,7 @@ Timeout: 60
       "autoApprove": [],
       "disabled": false,
       "timeout": 60,
-      "command": "moatless-mcp-server",
+      "command": "Industrial_Software_MCP",
       "args": [
         "--workspace",
         "${workspaceFolder}",
@@ -86,7 +86,7 @@ Timeout: 60
 {
   "cline.mcpServers": {
     "moatless": {
-      "command": "moatless-mcp-server",
+      "command": "Industrial_Software_MCP",
       "args": [
         "--workspace", "${workspaceFolder}",
         "--openai-api-key", "YOUR_API_KEY_HERE"
@@ -153,7 +153,7 @@ Timeout: 60
 ### 故障排除
 
 #### 问题：工具未显示
-- 确保 MCP 服务器已正确安装：`moatless-mcp-server --help`
+- 确保 MCP 服务器已正确安装：`Industrial_Software_MCP --help`
 - 检查 VS Code 设置中的配置是否正确
 - 重启 VS Code 和 Cline 扩展
 
@@ -172,14 +172,14 @@ Timeout: 60
 {
   "cline.mcpServers": {
     "moatless-python": {
-      "command": "moatless-mcp-server",
+      "command": "Industrial_Software_MCP",
       "args": ["--workspace", "${workspaceFolder}"],
       "env": {
         "MOATLESS_MAX_FILE_SIZE": "10485760"
       }
     },
     "moatless-large": {
-      "command": "moatless-mcp-server", 
+      "command": "Industrial_Software_MCP", 
       "args": ["--workspace", "${workspaceFolder}"],
       "env": {
         "MOATLESS_MAX_FILE_SIZE": "52428800",
@@ -195,7 +195,7 @@ Timeout: 60
 {
   "cline.mcpServers": {
     "moatless": {
-      "command": "moatless-mcp-server",
+      "command": "Industrial_Software_MCP",
       "args": ["--workspace", "${workspaceFolder}", "--debug"],
       "env": {
         "PYTHONPATH": "${workspaceFolder}"

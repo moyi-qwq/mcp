@@ -12,10 +12,10 @@ from moatless_mcp.utils.config import Config
 
 # Add moatless path to sys.path
 current_file = Path(__file__).resolve()
-# From: .../moatless-mcp-server/src/moatless_mcp/tools/semantic_search.py
-# To: .../moatless-tools (parent of moatless-mcp-server)
-src_dir = current_file.parent.parent.parent  # .../moatless-mcp-server/src
-mcp_server_dir = src_dir.parent  # .../moatless-mcp-server
+# From: .../Industrial_Software_MCP/src/moatless_mcp/tools/semantic_search.py
+# To: .../moatless-tools (parent of Industrial_Software_MCP)
+src_dir = current_file.parent.parent.parent  # .../Industrial_Software_MCP/src
+mcp_server_dir = src_dir.parent  # .../Industrial_Software_MCP
 moatless_tools_dir = mcp_server_dir.parent  # .../moatless-tools
 
 if str(moatless_tools_dir) not in sys.path:

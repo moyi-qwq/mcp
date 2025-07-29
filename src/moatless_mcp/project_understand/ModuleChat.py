@@ -6,7 +6,7 @@ from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_excep
 import os
 
 Config = {
-    "key": "sk-e47c9bef984c45b18db55d980dfd70fc",
+    "key": "",
     "model": "deepseek-chat",
     "http": "https://api.deepseek.com"
 }

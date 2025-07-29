@@ -9,11 +9,11 @@
 1. **不要将 API 密钥硬编码在配置文件中**
    ```bash
    # ❌ 不推荐：直接在命令行中暴露密钥
-   moatless-mcp-server --openai-api-key sk-1234567890abcdef
+   Industrial_Software_MCP --openai-api-key sk-1234567890abcdef
    
    # ✅ 推荐：使用环境变量
    export OPENAI_API_KEY="sk-1234567890abcdef"
-   moatless-mcp-server --workspace /path/to/project
+   Industrial_Software_MCP --workspace /path/to/project
    ```
 
 2. **使用项目特定的配置**
@@ -32,10 +32,10 @@
 1. **限制工作区范围**
    ```bash
    # ✅ 指定具体项目目录
-   moatless-mcp-server --workspace /home/user/projects/myproject
+   Industrial_Software_MCP --workspace /home/user/projects/myproject
    
    # ❌ 避免使用根目录或用户主目录
-   moatless-mcp-server --workspace /
+   Industrial_Software_MCP --workspace /
    ```
 
 2. **配置 .gitignore**
@@ -56,7 +56,7 @@
 1. **首次设置优化**
    ```bash
    # 第一次运行时使用快速启动
-   moatless-mcp-server --workspace /path/to/project --no-index
+   Industrial_Software_MCP --workspace /path/to/project --no-index
    
    # 稍后初始化索引
    # 通过 MCP 工具调用 code_index 初始化
@@ -65,7 +65,7 @@
 2. **索引维护**
    ```bash
    # 代码变更较多时重建索引
-   moatless-mcp-server --workspace /path/to/project --rebuild-index
+   Industrial_Software_MCP --workspace /path/to/project --rebuild-index
    ```
 
 3. **内存管理**
@@ -109,7 +109,7 @@
    {
      "mcpServers": {
        "moatless": {
-         "command": "moatless-mcp-server",
+         "command": "Industrial_Software_MCP",
          "args": [
            "--workspace", "/absolute/path/to/project",
            "--no-index"  // 首次使用推荐
@@ -127,7 +127,7 @@
    {
      "mcpServers": {
        "moatless": {
-         "command": "moatless-mcp-server",
+         "command": "Industrial_Software_MCP",
          "args": [
            "--workspace", "${workspaceFolder}",
            "--openai-api-key", "${env:OPENAI_API_KEY}"
@@ -152,7 +152,7 @@ EOF
 
 # 在启动脚本中加载
 source .env
-moatless-mcp-server --workspace /path/to/project
+Industrial_Software_MCP --workspace /path/to/project
 ```
 
 ## 🚀 使用场景最佳实践
@@ -203,7 +203,7 @@ moatless-mcp-server --workspace /path/to/project
 
 1. **启用调试模式**
    ```bash
-   moatless-mcp-server --workspace /path/to/project --debug
+   Industrial_Software_MCP --workspace /path/to/project --debug
    ```
 
 2. **检查工具状态**

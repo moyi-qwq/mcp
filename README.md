@@ -786,7 +786,7 @@ mypy src/
 ### 调试模式
 ```bash
 # 启用调试日志
-moatless-mcp-server --workspace /path/to/project --debug
+Industrial_Software_MCP --workspace /path/to/project --debug
 ```
 
 ## 📚 使用示例
@@ -867,16 +867,16 @@ export MOATLESS_ALLOW_VERSION_CONTROL=true       # 允许访问版本控制文�
 ### 命令行选项
 ```bash
 # 基础启动 (向量索引按需构建)
-moatless-mcp-server --workspace /path/to/project
+Industrial_Software_MCP --workspace /path/to/project
 
 # 使用 Jina AI API 密钥启用语义搜索
-moatless-mcp-server --workspace . --jina-api-key "your-key"
+Industrial_Software_MCP --workspace . --jina-api-key "your-key"
 
 # 调试模式
-moatless-mcp-server --workspace . --debug
+Industrial_Software_MCP --workspace . --debug
 
 # 组合使用
-moatless-mcp-server --workspace /path/to/project --jina-api-key "your-key" --debug
+Industrial_Software_MCP --workspace /path/to/project --jina-api-key "your-key" --debug
 ```
 
 ### 按需向量索引构建

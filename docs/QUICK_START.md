@@ -14,17 +14,17 @@ This guide will help you get started with the Moatless MCP Server in just a few 
 ```bash
 # Option 1: Install from source
 git clone <repository-url>
-cd moatless-mcp-server
+cd Industrial_Software_MCP
 pip install -e .
 
 # Option 2: Install from PyPI (when available)
-pip install moatless-mcp-server
+pip install Industrial_Software_MCP
 ```
 
 ### 2. Verify Installation
 
 ```bash
-moatless-mcp-server --help
+Industrial_Software_MCP --help
 ```
 
 ## Configuration
@@ -37,7 +37,7 @@ Add this to your `~/Library/Application Support/Claude/claude_desktop_config.jso
 {
   "mcpServers": {
     "moatless": {
-      "command": "moatless-mcp-server",
+      "command": "Industrial_Software_MCP",
       "args": ["--workspace", "/path/to/your/project"]
     }
   }
@@ -52,7 +52,7 @@ In your VS Code settings:
 {
   "cline.mcpServers": {
     "moatless": {
-      "command": "moatless-mcp-server",
+      "command": "Industrial_Software_MCP",
       "args": ["--workspace", "${workspaceFolder}"]
     }
   }
@@ -180,7 +180,7 @@ If you get "tool not found" errors:
 
 1. Check that the MCP server is properly configured
 2. Restart your MCP client
-3. Verify the server is installed: `moatless-mcp-server --help`
+3. Verify the server is installed: `Industrial_Software_MCP --help`
 
 ### Permission Errors
 

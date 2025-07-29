@@ -41,10 +41,10 @@ export JINA_API_KEY="jina_1647cb729b454f82ada95dedf18f5fbd_cxKj3hRLTs9MEwqUTxD64
 **启动服务器:**
 ```bash
 # 旧方式
-moatless-mcp-server --workspace /path/to/project --openai-api-key "sk-..."
+Industrial_Software_MCP --workspace /path/to/project --openai-api-key "sk-..."
 
 # 新方式
-moatless-mcp-server --workspace /path/to/project --jina-api-key "jina_..."
+Industrial_Software_MCP --workspace /path/to/project --jina-api-key "jina_..."
 ```
 
 ### 4. 更新 MCP 客户端配置
@@ -56,7 +56,7 @@ moatless-mcp-server --workspace /path/to/project --jina-api-key "jina_..."
 {
   "mcpServers": {
     "moatless": {
-      "command": "moatless-mcp-server",
+      "command": "Industrial_Software_MCP",
       "args": [
         "--workspace", "/path/to/your/project",
         "--openai-api-key", "sk-your-openai-key"
@@ -71,7 +71,7 @@ moatless-mcp-server --workspace /path/to/project --jina-api-key "jina_..."
 {
   "mcpServers": {
     "moatless": {
-      "command": "moatless-mcp-server",
+      "command": "Industrial_Software_MCP",
       "args": [
         "--workspace", "/path/to/your/project",
         "--jina-api-key", "jina_your-jina-key"
@@ -88,7 +88,7 @@ moatless-mcp-server --workspace /path/to/project --jina-api-key "jina_..."
 {
   "mcpServers": {
     "moatless": {
-      "command": "moatless-mcp-server",
+      "command": "Industrial_Software_MCP",
       "args": ["--workspace", "${workspaceFolder}", "--openai-api-key", "sk-..."],
       "timeout": 60,
       "transportType": "stdio"
@@ -102,7 +102,7 @@ moatless-mcp-server --workspace /path/to/project --jina-api-key "jina_..."
 {
   "mcpServers": {
     "moatless": {
-      "command": "moatless-mcp-server",
+      "command": "Industrial_Software_MCP",
       "args": ["--workspace", "${workspaceFolder}", "--jina-api-key", "jina_..."],
       "timeout": 60,
       "transportType": "stdio"
@@ -117,11 +117,11 @@ moatless-mcp-server --workspace /path/to/project --jina-api-key "jina_..."
 
 ```bash
 # 方法 1: 使用 --rebuild-index 参数
-moatless-mcp-server --workspace /path/to/project --jina-api-key "jina_..." --rebuild-index
+Industrial_Software_MCP --workspace /path/to/project --jina-api-key "jina_..." --rebuild-index
 
 # 方法 2: 删除旧索引，重新启动
 rm -rf .moatless_index/
-moatless-mcp-server --workspace /path/to/project --jina-api-key "jina_..."
+Industrial_Software_MCP --workspace /path/to/project --jina-api-key "jina_..."
 
 # 方法 3: 使用 code_index 工具重建
 # 在 MCP 客户端中调用:
@@ -214,7 +214,7 @@ export OPENAI_API_KEY="sk-your-openai-key"
 unset JINA_API_KEY
 
 # 重建索引
-moatless-mcp-server --workspace /path/to/project --openai-api-key "sk-..." --rebuild-index
+Industrial_Software_MCP --workspace /path/to/project --openai-api-key "sk-..." --rebuild-index
 ```
 
 ## 📞 获取帮助
