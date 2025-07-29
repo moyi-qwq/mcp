@@ -68,6 +68,24 @@ class Config:
     # Allow access to version control and hidden files
     allow_hidden_files: bool = True
     allow_version_control: bool = True
+
+    # Project Understand Type Weight
+    TypeWeight: set= field(default_factory=lambda: {
+        "Implement": 7.575,
+        "Throw": 9.053,
+        "Call": 0.177,
+        "Create": 1.665,
+        "ImplLink": 9.33,
+        "Extend": 2.159,
+        "Use": 0.509,
+        "Parameter": 5.146,
+        "Import": 8.300,
+        "Cast": 0.701,
+        "Return": 5.702,
+        "Contain": 4.478
+    })
+
+    
     
     @classmethod
     def from_env(cls) -> "Config":
