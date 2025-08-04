@@ -7,7 +7,7 @@ echo "🚀 开始部署 Moatless MCP Server 到 Cline..."
 
 # 1. 检查 base2 环境
 echo "📋 检查 conda 环境..."
-source activate base2
+source venv/bin/activate
 echo "✅ 当前 Python 版本: $(python --version)"
 
 # 2. 安装 MCP Server
