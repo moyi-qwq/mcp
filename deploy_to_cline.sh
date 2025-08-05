@@ -5,16 +5,61 @@ set -e
 
 echo "🚀 开始部署 Moatless MCP Server 到 Cline..."
 
-# 1. 检查 base2 环境
-echo "📋 检查 conda 环境..."
+# 1. 检查并激活虚拟环境
+echo "📋 检查虚拟环境..."
+if [ ! -d "venv" ]; then
+    echo "❌ 虚拟环境不存在，请先创建虚拟环境"
+    exit 1
+fi
+
 source venv/bin/activate
 echo "✅ 当前 Python 版本: $(python --version)"
+echo "✅ 当前 pip 版本: $(pip --version)"
 
-# 2. 安装 MCP Server
-echo "📦 安装 Moatless MCP Server..."
-pip install -e .
+# 2. 升级 pip 和安装编译工具
+echo "🔧 升级 pip 和安装编译工具..."
+pip install --upgrade pip setuptools wheel
 
-# 3. 验证安装
+# 3. 检查系统依赖（macOS）
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "🍎 检测到 macOS 系统，检查编译依赖..."
+    
+    # 检查是否安装了 Xcode Command Line Tools
+    if ! xcode-select -p &> /dev/null; then
+        echo "⚠️  未检测到 Xcode Command Line Tools"
+        echo "请运行: xcode-select --install"
+        echo "然后重新运行此脚本"
+        exit 1
+    fi
+    
+    # 检查是否安装了 Homebrew
+    if ! command -v brew &> /dev/null; then
+        echo "⚠️  未检测到 Homebrew"
+        echo "请先安装 Homebrew: https://brew.sh"
+        exit 1
+    fi
+    
+    # 安装 faiss 编译依赖
+    echo "📦 安装 faiss 编译依赖..."
+    brew install cmake swig libomp
+    
+    # 设置编译环境变量
+    export CMAKE_PREFIX_PATH="$(brew --prefix)"
+    export LDFLAGS="-L$(brew --prefix)/lib"
+    export CPPFLAGS="-I$(brew --prefix)/include"
+    export CC=clang
+    export CXX=clang++
+fi
+
+# 4. 尝试安装预编译的 faiss-cpu
+echo "📦 尝试安装预编译的 faiss-cpu..."
+pip install --no-cache-dir --force-reinstall faiss-cpu
+
+# 5. 安装其他依赖
+echo "📦 安装其他项目依赖..."
+pip install --no-cache-dir -e .
+
+# 6. 验证安装
 echo "🔍 验证安装..."
 if command -v Industrial_Software_MCP &> /dev/null; then
     echo "✅ MCP Server 安装成功"
@@ -24,7 +69,7 @@ else
     exit 1
 fi
 
-# 4. 配置 Cline MCP 设置
+# 7. 配置 Cline MCP 设置
 MCP_SETTINGS_FILE="$HOME/.vscode-server/data/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json"
 PYTHON_PATH=$(which python)
 

@@ -33,6 +33,7 @@ from moatless_mcp.tools.vector_tools import (
 )
 
 from moatless_mcp.tools.project_understand import ProjectUnderstandTool
+from moatless_mcp.tools.verilog_tools import VerilogGenerateTool, VerilogV2SvgTool
 
 logger = logging.getLogger(__name__)
 
@@ -74,6 +75,10 @@ class ToolRegistry:
 
             # Project Understand tools
             ProjectUnderstandTool(self.workspace),
+            
+            # Verilog tools
+            VerilogGenerateTool(self.workspace),
+            VerilogV2SvgTool(self.workspace),
         ]
         
         for tool in tools:
