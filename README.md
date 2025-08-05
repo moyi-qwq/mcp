@@ -6,6 +6,25 @@
 
 一个基于模型上下文协议 (MCP) 的高级代码分析和编辑服务器，支持基于向量嵌入的语义搜索功能。该服务器为 AI 助手提供了通过标准化接口执行复杂代码操作的能力。
 
+## 🆕 最新更新：Verilog 功能支持
+
+为了增强代码生成和可视化能力，我们新增了 **Verilog 相关功能**：
+
+### 新增工具
+- **`verilog_generate`**: 通过在线服务生成Verilog代码，根据问题描述自动生成对应的Verilog模块
+- **`verilog_v2svg_link`**: 将Verilog代码转换为SVG图片链接，生成电路图的SVG格式图片
+
+### 修改的文件
+- **`src/moatless_mcp/tools/verilog_tools.py`**: 新增Verilog工具实现文件
+- **`src/moatless_mcp/tools/registry.py`**: 在工具注册表中添加Verilog工具的导入和注册
+- **`pyproject.toml`**: 添加 `aiohttp>=3.8.0` 依赖以支持HTTP请求
+
+### 功能特点
+- 🔧 **智能代码生成**: 基于自然语言描述自动生成Verilog代码
+- 📊 **可视化支持**: 将Verilog代码转换为SVG电路图
+- 🌐 **在线服务集成**: 通过API调用外部Verilog服务
+- ⚡ **异步处理**: 使用aiohttp进行高效的异步HTTP请求
+
 ## 核心架构：模型上下文协议 (MCP)
 
 本服务器是一个**MCP服务器**的实现。MCP是一个开放协议，旨在成为语言模型（LLM）与外部工具和数据源之间的标准中间件。它允许像IDE或聊天应用这样的客户端（MCP客户端）安全、动态地与服务器提供的能力（如文件系统访问、代码分析）进行交互。
